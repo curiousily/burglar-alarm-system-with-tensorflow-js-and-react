@@ -1,7 +1,7 @@
 {
   "name": "burglar-alarm-system-with-tensorflow-js-and-react",
   "version": "1.0.0",
-  "description": null,
+  "description": "Learn how to use TensorFlow’s Object Detection model (COCO-SSD) to detect intruders from images and webcam feeds",
   "keywords": [
     "javascript",
     "tensorflow",
