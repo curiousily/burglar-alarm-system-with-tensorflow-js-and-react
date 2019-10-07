@@ -14,6 +14,7 @@ import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import Loader from "./Loader";
 import ImageDetector from "./detection/ImageDetector";
 import VideoDetector from "./detection/VideoDetector";
+import { ToastProvider } from "react-toast-notifications";
 
 const iconContainerStyles = {
   width: "4.5rem",
@@ -50,54 +51,56 @@ const App = () => {
   };
 
   return (
-    <div className="rainbow-m-around_x-large">
-      <Card
-        title="Burglar Alarm"
-        icon={
-          <span
-            className="rainbow-background-color_gray-4 rainbow-border-radius_circle rainbow-align-content_center"
-            style={iconContainerStyles}
-          >
-            <FontAwesomeIcon
-              icon={faGhost}
-              size="3x"
-              className="rainbow-color_yellow "
-            />
-          </span>
-        }
-      >
-        {model === null && <Loader text="Loading the model" />}
-        {model !== null && (
-          <div className="rainbow-p-around_x-large rainbow-align-content_center rainbow-flex_column">
-            <VisualPicker
-              label={<h1 style={textChooserStyles}>Choose Source</h1>}
-              value={source}
-              onChange={handleChangeSource}
+    <ToastProvider>
+      <div className="rainbow-m-around_x-large">
+        <Card
+          title="Burglar Alarm"
+          icon={
+            <span
+              className="rainbow-background-color_gray-4 rainbow-border-radius_circle rainbow-align-content_center"
+              style={iconContainerStyles}
             >
-              <VisualPickerOption name="image">
-                <FontAwesomeIcon
-                  icon={faImage}
-                  size="3x"
-                  className="rainbow-color_brand-active"
-                />
-                <h2 style={textStyles}>Photo</h2>
-              </VisualPickerOption>
-              <VisualPickerOption name="webcam">
-                <FontAwesomeIcon
-                  icon={faRecordVinyl}
-                  size="3x"
-                  className="rainbow-color_brand-active"
-                />
-                <h2 style={textStyles}>Webcam</h2>
-              </VisualPickerOption>
-            </VisualPicker>
+              <FontAwesomeIcon
+                icon={faGhost}
+                size="3x"
+                className="rainbow-color_yellow "
+              />
+            </span>
+          }
+        >
+          {model === null && <Loader text="Loading the model" />}
+          {model !== null && (
+            <div className="rainbow-p-around_x-large rainbow-align-content_center rainbow-flex_column">
+              <VisualPicker
+                label={<h1 style={textChooserStyles}>Choose Source</h1>}
+                value={source}
+                onChange={handleChangeSource}
+              >
+                <VisualPickerOption name="image">
+                  <FontAwesomeIcon
+                    icon={faImage}
+                    size="3x"
+                    className="rainbow-color_brand-active"
+                  />
+                  <h2 style={textStyles}>Photo</h2>
+                </VisualPickerOption>
+                <VisualPickerOption name="webcam">
+                  <FontAwesomeIcon
+                    icon={faRecordVinyl}
+                    size="3x"
+                    className="rainbow-color_brand-active"
+                  />
+                  <h2 style={textStyles}>Webcam</h2>
+                </VisualPickerOption>
+              </VisualPicker>
 
-            {source === "image" && <ImageDetector objectDetector={model} />}
-            {source === "webcam" && <VideoDetector objectDetector={model} />}
-          </div>
-        )}
-      </Card>
-    </div>
+              {source === "image" && <ImageDetector objectDetector={model} />}
+              {source === "webcam" && <VideoDetector objectDetector={model} />}
+            </div>
+          )}
+        </Card>
+      </div>
+    </ToastProvider>
   );
 };
 

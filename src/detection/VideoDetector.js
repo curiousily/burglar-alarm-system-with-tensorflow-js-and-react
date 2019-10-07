@@ -1,10 +1,13 @@
 import React, { useEffect, createRef } from "react";
+import { useToasts } from "react-toast-notifications";
 
 const BOUNDING_BOX_LABEL = "Intruder";
 
 const VideoDetector = ({ objectDetector }) => {
   const videoRef = createRef();
   const canvasRef = createRef();
+
+  const { addToast, toastStack } = useToasts();
 
   const detectFromVideoFrame = async video => {
     try {
@@ -23,6 +26,14 @@ const VideoDetector = ({ objectDetector }) => {
   };
 
   const showDetections = (video, predictions) => {
+    if (predictions.length > 0 && toastStack.length === 0) {
+      addToast("Intruder detected", {
+        appearance: "error",
+        autoDismiss: true,
+        autoDismissTimeout: 2000
+      });
+    }
+
     const ctx = canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.drawImage(video, 0, 0);
