@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Card,
-  ButtonGroup,
-  Button,
   VisualPicker,
   VisualPickerOption
 } from "react-rainbow-components";
@@ -14,17 +12,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import Loader from "./Loader";
-import ImageDetection from "./ImageDetection";
+import ImageDetector from "./ImageDetector";
 
 const iconContainerStyles = {
   width: "4.5rem",
   height: "4.5rem"
-};
-
-const titleStyles = {
-  fontSize: 24,
-  color: "#061c3f",
-  fontWeight: 300
 };
 
 const textStyles = {
@@ -99,7 +91,7 @@ const App = () => {
               </VisualPickerOption>
             </VisualPicker>
 
-            {source === "image" && <ImageDetection objectDetector={model} />}
+            {source === "image" && <ImageDetector objectDetector={model} />}
           </div>
         )}
       </Card>

@@ -46,7 +46,7 @@ const ImageDetector = ({ objectDetector }) => {
     <>
       {!showDetections && <img id="image" />}
       <canvas id="canvas" />
-      <h1 style={{ fontSize: "1.5rem", marginTop: "2rem" }}>
+      <h1 style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
         {detectionCount} intruders detected
       </h1>
     </>
