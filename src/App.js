@@ -12,7 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import Loader from "./Loader";
-import ImageDetector from "./ImageDetector";
+import ImageDetector from "./detection/ImageDetector";
+import VideoDetector from "./detection/VideoDetector";
 
 const iconContainerStyles = {
   width: "4.5rem",
@@ -92,6 +93,7 @@ const App = () => {
             </VisualPicker>
 
             {source === "image" && <ImageDetector objectDetector={model} />}
+            {source === "webcam" && <VideoDetector objectDetector={model} />}
           </div>
         )}
       </Card>
