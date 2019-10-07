@@ -51,12 +51,17 @@ const VideoDetector = ({ objectDetector }) => {
       ctx.fillStyle = "red";
       const textWidth = ctx.measureText(BOUNDING_BOX_LABEL).width;
       const textHeight = parseInt(font, 10);
-      ctx.fillRect(x, y, textWidth + 10, textHeight + 10);
-      ctx.fillRect(x, y + height - textHeight, textWidth + 15, textHeight + 10);
+      ctx.fillRect(x, y, textWidth + 10, textHeight + 5);
+      ctx.fillRect(
+        x,
+        y + height - textHeight - 5,
+        textWidth + 15,
+        textHeight + 20
+      );
 
       ctx.fillStyle = "#FFFFFF";
-      ctx.fillText(BOUNDING_BOX_LABEL, x, y);
-      ctx.fillText(prediction.score.toFixed(2), x, y + height - textHeight);
+      ctx.fillText(BOUNDING_BOX_LABEL, x + 5, y);
+      ctx.fillText(prediction.score.toFixed(2), x + 5, y + height - textHeight);
     });
   };
 
