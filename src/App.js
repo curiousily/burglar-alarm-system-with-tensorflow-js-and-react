@@ -71,6 +71,15 @@ const App = () => {
           {model === null && <Loader text="Loading the model" />}
           {model !== null && (
             <div className="rainbow-p-around_x-large rainbow-align-content_center rainbow-flex_column">
+              <h1 style={{ fontSize: "1.2rem" }}>
+                <a
+                  href="https://www.curiousily.com/posts/burglar-alarm-system-using-object-detection-with-tensorflow-js/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read the complete tutorial
+                </a>
+              </h1>
               <VisualPicker
                 label={<h1 style={textChooserStyles}>Choose Source</h1>}
                 value={source}
