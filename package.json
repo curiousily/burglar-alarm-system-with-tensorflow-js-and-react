@@ -1,8 +1,14 @@
 {
   "name": "burglar-alarm-system-with-tensorflow-js-and-react",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": null,
+  "keywords": [
+    "javascript",
+    "tensorflow",
+    "deep learning",
+    "react",
+    "object detection"
+  ],
   "main": "src/index.js",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.25",
