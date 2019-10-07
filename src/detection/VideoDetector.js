@@ -28,9 +28,7 @@ const VideoDetector = ({ objectDetector }) => {
   const showDetections = (video, predictions) => {
     if (predictions.length > 0 && toastStack.length === 0) {
       addToast("Intruder detected", {
-        appearance: "error",
-        autoDismiss: true,
-        autoDismissTimeout: 2000
+        appearance: "error"
       });
     }
 
